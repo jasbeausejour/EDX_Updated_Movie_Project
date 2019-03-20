@@ -590,6 +590,8 @@ This might be due to the fact that we arbitrarily selected $\lambda=3$.
 
 Because $\lambda$ is a tuning parameter, we can use cross-validation to choose it.
 
+Note that here we are using our test set to perform tuning. This is not best practice, but since the final evaluation will be on the validation set, which we do not use here, we are comfortable doing so.
+
 ```{r}
 lambdas <- seq(0, 10, 0.25)
 
@@ -705,6 +707,7 @@ For the same reasons we regularized the movie effect, we want to also regularize
 $$
 Y_{u,i} = \mu + \hat{b}_i(\lambda_i) + \hat{b}_u(\lambda_u) + \varepsilon_{u,i}
 $$
+Note that here we are using our test set to perform tuning. This is not best practice, but since the final evaluation will be on the validation set, which we do not use here, we are comfortable doing so.
 
 ```{r best-lambdas}
 lambdas <- seq(0, 10, 0.25)

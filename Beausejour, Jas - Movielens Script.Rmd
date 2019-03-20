@@ -107,6 +107,8 @@ Here, $Y_{u,i}$ is the actual rating for a given movie, for a given user.  It is
 
 Therefore, the first step is to get the optimized, regularized movie effect. See the long report for more details.
 
+Note that here we are using our test set to perform tuning. This is not best practice, but since the final evaluation will be on the validation set, which we do not use here, we are comfortable doing so.
+
 ```{r}
 # First, let's calculate mu
 
@@ -138,7 +140,12 @@ lambda_movie <- lambdas[which.min(rmses)]
 
 ```
 
-Our **lambda_movie** is `r lambda_movie`.
+Our **lambda_movie** is
+
+```{r}
+lambda_movie
+```
+
 
 We now use this lambda to create our regularized movie effect in the following code:
 
@@ -151,6 +158,8 @@ movie_reg_avgs <- train_set %>%
 **Step 3: Creating the Regularized User Effect, with optimized Lambda**
 
 At this step, we repeat the previous analysis, but for the user effect, which takes into account both $\mu$ and the movie effect, $\hat{b}_i(\lambda_i)=\hat{b}_i(2)$. We are looking to create $\hat{b}_u(\lambda_u)$ while optimizing $(\lambda_u)$.
+
+Note that here we are using our test set to perform tuning. This is not best practice, but since the final evaluation will be on the validation set, which we do not use here, we are comfortable doing so.
 
 ```{r best-lambdas}
 # This is the set of lambdas that we will be trying
@@ -184,6 +193,13 @@ rmses <- sapply(lambdas, function(l){
 
 lambda_user <- lambdas[which.min(rmses)]
 ```
+
+Our lambda user is
+
+```{r}
+lambda_user
+```
+
 
 Next, we compute our user effect table.
 
