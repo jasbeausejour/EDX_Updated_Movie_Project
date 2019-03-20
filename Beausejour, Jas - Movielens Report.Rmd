@@ -19,6 +19,8 @@ Note 2: Running this code can easily take 9-11 minutes. The actual run time is i
 
 Note 3: A barebone R file containing strictly only what is necessary to get to our final RMSE of **0.8649** is also being submitted. However, readers should use this report to see the comments and nuances of the code.
 
+Note 4: This code requires a working internet connection as it downloads data from the web.
+
 ##Executive Summary
 
 We build a movie recommendation system by using part of the MovieLens database. Our main success metric is the Root Mean Square Error, which we bring down to **0.8649**, within a percentage point of the Netflix Challenge Winners (0.8567). 
